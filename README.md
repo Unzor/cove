@@ -1,7 +1,7 @@
 # cove
 Simplify HTML then recompile it later.
 
-Cove takes a sequence (like "{{hello}}") and evaluates it. You can even get a variable from it! Once compiled, it replaces all of the sequences found with its returned result
+Cove takes a sequence (like "{{hello}}") and evaluates the code inside it. You can get a variable from it, or evaluate JavaScript code. Once compiled, it replaces all of the sequences found with its returned result.
 # Usage
 ```
 cove main.cov
