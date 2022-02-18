@@ -1,7 +1,11 @@
 # cove
 Simplify HTML then recompile it later.
 
-Cove takes a sequence (like "{{hello}}") and evaluates the code inside it. You can get a variable from it, or evaluate JavaScript code. Once compiled, it replaces all of the sequences found with its returned result.
+Cove takes sequences (like "{{hello}}") and evaluates the code inside it. You can get a variable from it, or evaluate JavaScript code. Once compiled, it replaces all of the sequences found with its returned result. There are currently two syntaxes, here are some examples:
+#### JavaScript Evaluation inside of syntax
+{{ 9 + 10}}
+#### Element Query Selection
+{element{h1})
 
 To use variables, create a script and give it the "cove" attribute to be ran on compilation.
 
@@ -36,6 +40,21 @@ window.world = "world"
 Result:
 ```html
 <h1> 5 + 5 is 10 </h1>
+```
+## Query Selection
+Before
+```html
+<h1> Hello World! </h1>
+<script> 
+console.log(({element{h1}).innerText); // Hello World!
+</script>
+```
+After
+```html
+<h1> Hello World! </h1>
+<script> 
+console.log(document.querySelector("h1").innerText); // Hello World!
+</script>
 ```
 ## In Browser 
 ```javascript
