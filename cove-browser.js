@@ -1,7 +1,7 @@
 function cove(code) {
     var result;
 
-    window.rangethrough = function(sequence, str) {
+    var rangethrough = function(sequence, str) {
         var a2 = [];
         str.split(sequence[0]).forEach(function(e) {
             var h = e.split(sequence[1]);
