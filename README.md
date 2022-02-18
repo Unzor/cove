@@ -24,8 +24,7 @@ window.world = "world"
 # Examples
 ## Math
 ```html
-<h1> {{ var equation = 5 + 5; 
-  equation == 10 ? equation.toString() + "is 10" : equation.toString() + "is not 10" }} </h1>
+<h1> {{ var equation = "5 + 5"; eval(equation) == 10 ? equation.toString() + " is 10" : equation.toString() + " is not 10" }} </h1>
 ```
 Result:
 ```html
