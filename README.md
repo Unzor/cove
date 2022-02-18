@@ -35,3 +35,11 @@ Result:
 ```html
 <h1> 5 + 5 is 10 </h1>
 ```
+## In Browser 
+```javascript
+cove(`<h1> {{ var equation = "5 + 5"; eval(equation) == 10 ? equation.toString() + " is 10" : equation.toString() + " is not 10" }} </h1>`);
+```
+Returns: 
+```html
+<h1> 5 + 5 is 10 </h1>
+```
