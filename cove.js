@@ -42,3 +42,9 @@ ranges.forEach(function(r){
     fs.writeFileSync(file, conts.replaceAll(r, res))
   }
 })
+
+rangethrough(["({element", "})"], conts).forEach(function(e) {
+        if (e.startsWith("({")) {
+            result = conts.replaceAll(e, "document.querySelector(\"" + e.split("{").pop().slice(0, -2) + "\")");
+        }
+})
