@@ -1,7 +1,7 @@
 function cove(code) {
     var result;
 
-    function rangethrough(sequence, str) {
+    window.rangethrough = function(sequence, str) {
         var a2 = [];
         str.split(sequence[0]).forEach(function(e) {
             var h = e.split(sequence[1]);
@@ -27,8 +27,10 @@ function cove(code) {
 
     var root = new DOMParser().parseFromString(conts, "text/html");
     root.querySelectorAll("script").forEach(function(sc) {
-        sc = sc.innerText;
-        eval(sc);
+        if (sc.getAttribute("cove") !== null) {
+            sc = sc.innerText;
+            eval(sc);
+        }
     })
 
     var ranges = rangethrough(["{{", "}}"], conts);
@@ -38,5 +40,11 @@ function cove(code) {
             result = conts.replaceAll(r, res);
         }
     })
+    rangethrough(["({element", "})"], conts).forEach(function(e) {
+        if (e.startsWith("({")) {
+            result = conts.replaceAll(e, "document.querySelector(\"" + e.split("{").pop().slice(0, -2) + "\")");
+        }
+    })
+
     return result;
 }
