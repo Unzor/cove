@@ -29,8 +29,10 @@ var conts = fs.readFileSync(file).toString();
 
 var root = HTMLParser.parse(conts);
 root.querySelectorAll("script").forEach(function(sc){
+  if (sc.getAttribute("cove") !== null) {
   sc = sc.innerText;
     eval(sc);
+  }
 })
 
 var ranges = rangethrough(["{{", "}}"], conts);
