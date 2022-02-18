@@ -3,6 +3,8 @@ Simplify HTML then recompile it later.
 
 Cove takes a sequence (like "{{hello}}") and evaluates the code inside it. You can get a variable from it, or evaluate JavaScript code. Once compiled, it replaces all of the sequences found with its returned result.
 
+To use variables, create a script and give it the "cove" attribute to be ran on compilation.
+
 # Installation 
 ```
 npm install -g cove-compiler
@@ -13,14 +15,14 @@ cove main.cov
 ```
 main.cov (before):
 ```html
-<script>
+<script cove>
 window.world = "world"
 </script>
 <h1> Hello {{world}}! </h1>
 ```
 main.cov (after):
 ```html
-<script>
+<script cove>
 window.world = "world"
 </script>
 <h1> Hello world! </h1>
