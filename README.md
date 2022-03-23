@@ -15,7 +15,7 @@ Here are some examples:
 {element{h1})
 ```
 
-To use variables, create a script and give it the "cove" attribute to be ran on compilation.
+To use variables, or to evaluate a script on run, create a script and give it the "cove" attribute to be ran on compilation.
 
 # Installation 
 ```
